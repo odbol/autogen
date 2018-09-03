@@ -1,0 +1,64 @@
+#!/usr/bin/python
+#
+# Copyright 2018 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""TODO: High-level file comment."""
+
+import json
+import sys
+
+
+def main(argv):
+    ipynb = {}
+    cells = ipynb['cells'] = []
+    
+    # First cell has the license, read in from stdin.
+    cell_license = {
+        'cell_type': 'markdown',
+        'metadata': {
+          'collapsed': False
+        },
+        'source': ['```python\n'] + sys.stdin.readlines() + ['```\n']
+    }
+    cells.append(cell_license)
+
+    # IPython/Jupyter configuration parameters.
+    ipynb['metadata'] = {
+        'kernelspec': {
+            'display_name': 'Python 3',
+            'language': 'python',
+            'name': 'python3'
+        },
+        'language_info': {
+            'codemirror_mode': {
+                'name': 'ipython',
+                'version': 3
+            },
+            'file_extension': '.py',
+            'mimetype': 'text/x-python',
+            'name': 'python',
+            'nbconvert_exporter': 'python',
+            'pygments_lexer': 'ipython3',
+            'version': '3.5.1'
+        }
+    }
+    ipynb['nbformat'] = 4
+    ipynb['nbformat_minor'] = 0
+
+    print(json.dumps(ipynb, separators=(',', ': '), sort_keys=True, indent=2))
+
+
+if __name__ == '__main__':
+    main(sys.argv)
