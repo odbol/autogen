@@ -28,7 +28,6 @@ def main(argv):
     cell_license = {
         #'cell_type': 'markdown',
         'cell_type': 'code',
-        'execution_count': 1,
         'metadata': {
           'collapsed': False
         },
