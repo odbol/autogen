@@ -32,7 +32,7 @@ def main(argv):
           'collapsed': False
         },
         'source': sys.stdin.readlines(),
-        'outputs': []
+        'outputs': [],
     }
     cells.append(cell_license)
 
@@ -43,8 +43,8 @@ def main(argv):
         'metadata': {
           'collapsed': False
         },
-        'source': []
-        'outputs': []
+        'source': [],
+        'outputs': [],
     }
     cells.append(cell_code)
 
