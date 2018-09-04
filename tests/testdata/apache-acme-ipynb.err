@@ -1,0 +1,4 @@
+  File "./ipynb.py", line 47
+    'output': []
+           ^
+SyntaxError: invalid syntax

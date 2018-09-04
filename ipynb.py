@@ -26,14 +26,13 @@ def main(argv):
     
     # First cell has the license, read in from stdin.
     cell_license = {
-        #'cell_type': 'markdown',
         'cell_type': 'code',
         'execution_count': 0,
         'metadata': {
           'collapsed': False
         },
-        #'source': ['```python\n'] + sys.stdin.readlines() + ['```\n']
-        'source': sys.stdin.readlines() + ['\n']
+        'source': sys.stdin.readlines(),
+        'output': []
     }
     cells.append(cell_license)
 
@@ -45,6 +44,7 @@ def main(argv):
           'collapsed': False
         },
         'source': []
+        'output': []
     }
     cells.append(cell_code)
 
