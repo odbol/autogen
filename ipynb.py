@@ -26,15 +26,19 @@ def main(argv):
     
     # First cell has the license, read in from stdin.
     cell_license = {
-        'cell_type': 'markdown',
+        #'cell_type': 'markdown',
+        'cell_type': 'code',
+        'execution_count': 1,
         'metadata': {
           'collapsed': False
         },
-        'source': ['```python\n'] + sys.stdin.readlines() + ['```\n']
+        #'source': ['```python\n'] + sys.stdin.readlines() + ['```\n']
+        'source': [line.rstrip() for line in sys.stdin.readlines()] + ['\n']
     }
     cells.append(cell_license)
 
     # IPython/Jupyter configuration parameters.
+    # TODO(mbrukman): how would a user configure these?
     ipynb['metadata'] = {
         'kernelspec': {
             'display_name': 'Python 3',
