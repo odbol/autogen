@@ -28,13 +28,25 @@ def main(argv):
     cell_license = {
         #'cell_type': 'markdown',
         'cell_type': 'code',
+        'execution_count': 0,
         'metadata': {
           'collapsed': False
         },
         #'source': ['```python\n'] + sys.stdin.readlines() + ['```\n']
-        'source': [line.rstrip() for line in sys.stdin.readlines()] + ['\n']
+        'source': sys.stdin.readlines() + ['\n']
     }
     cells.append(cell_license)
+
+    # Code starts on the next cell.
+    cell_code = {
+        'cell_type': 'code',
+        'execution_count': 1,
+        'metadata': {
+          'collapsed': False
+        },
+        'source': []
+    }
+    cells.append(cell_code)
 
     # IPython/Jupyter configuration parameters.
     # TODO(mbrukman): how would a user configure these?
